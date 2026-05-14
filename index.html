@@ -552,6 +552,8 @@
             background: #000;
             color: var(--dark-ink);
             border-bottom: none;
+            position: relative;
+            overflow: hidden;
         }
 
         .contact-inner {
@@ -1030,6 +1032,100 @@
         <img src="./images/nagendrax0 image.webp" alt="NAGENDRA X0">
     </div>
 </footer>
+
+<script>
+(function () {
+    const section = document.getElementById('contact');
+    const canvas  = document.createElement('canvas');
+    canvas.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;pointer-events:none;';
+    section.insertBefore(canvas, section.firstChild);
+
+    const ctx = canvas.getContext('2d');
+
+    let mouseX = -9999, mouseY = -9999;
+    let panX = 0, panY = 0, tPanX = 0, tPanY = 0;
+
+    const FS = 11;   // font size px
+    const CW = 16;   // col width
+    const RH = 20;   // row height
+    const HR = 150;  // hover radius
+    const PA = 20;   // parallax max px
+
+    // Stable 0/1 per grid cell using a hash
+    function bit(c, r) {
+        const v = Math.sin(c * 127.1 + r * 311.7) * 43758.5453;
+        return (v - Math.floor(v)) > 0.5 ? '1' : '0';
+    }
+
+    function lerp(a, b, t) { return a + (b - a) * t; }
+
+    function resize() {
+        canvas.width  = section.offsetWidth;
+        canvas.height = section.offsetHeight;
+    }
+
+    function draw() {
+        requestAnimationFrame(draw);
+
+        panX = lerp(panX, tPanX, 0.06);
+        panY = lerp(panY, tPanY, 0.06);
+
+        const W = canvas.width, H = canvas.height;
+        ctx.clearRect(0, 0, W, H);
+        ctx.font = `300 ${FS}px 'DM Sans', monospace`;
+        ctx.textAlign = 'center';
+
+        const cols = Math.ceil(W / CW) + 2;
+        const rows = Math.ceil(H / RH) + 2;
+
+        for (let r = 0; r < rows; r++) {
+            for (let c = 0; c < cols; c++) {
+                const x = c * CW + panX;
+                const y = r * RH + panY + FS;
+
+                const dx = x - mouseX;
+                const dy = y - mouseY;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+
+                let fill;
+                if (dist < HR) {
+                    const t = Math.pow(1 - dist / HR, 2);
+                    // interpolate: dim cream → accent orange #C95320
+                    const ri = Math.round(lerp(244, 201, t));
+                    const gi = Math.round(lerp(241,  83, t));
+                    const bi = Math.round(lerp(235,  32, t));
+                    const ai = 0.05 + t * 0.55;
+                    fill = `rgba(${ri},${gi},${bi},${ai})`;
+                } else {
+                    fill = 'rgba(244,241,235,0.04)';
+                }
+
+                ctx.fillStyle = fill;
+                ctx.fillText(bit(c, r), x, y);
+            }
+        }
+    }
+
+    section.addEventListener('mousemove', e => {
+        const rect = section.getBoundingClientRect();
+        mouseX = e.clientX - rect.left;
+        mouseY = e.clientY - rect.top;
+        const cx = rect.width  / 2;
+        const cy = rect.height / 2;
+        tPanX = ((mouseX - cx) / cx) * PA;
+        tPanY = ((mouseY - cy) / cy) * PA;
+    });
+
+    section.addEventListener('mouseleave', () => {
+        mouseX = -9999; mouseY = -9999;
+        tPanX = 0; tPanY = 0;
+    });
+
+    window.addEventListener('resize', () => { resize(); });
+    resize();
+    draw();
+})();
+</script>
 
 </body>
 </html>
