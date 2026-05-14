@@ -65,6 +65,19 @@
             --sans:  'DM Sans', system-ui, -apple-system, sans-serif;
 
             --pad: clamp(20px, 5vw, 72px);
+
+            /* ── fluid type scale ── */
+            --fs-2xs:  clamp(9px,   0.65vw, 10px);   /* tags, labels       */
+            --fs-xs:   clamp(10px,  0.75vw, 11px);   /* eyebrows, footer   */
+            --fs-sm:   clamp(11px,  0.85vw, 13px);   /* captions, meta     */
+            --fs-base: clamp(13px,  1.1vw,  15px);   /* body copy          */
+            --fs-md:   clamp(14px,  1.3vw,  16px);   /* lead / hero desc   */
+            --fs-lg:   clamp(17px,  1.7vw,  20px);   /* testimonial        */
+            --fs-xl:   clamp(18px,  2.0vw,  24px);   /* service headings   */
+            --fs-2xl:  clamp(24px,  3.0vw,  40px);   /* about statement    */
+            --fs-3xl:  clamp(38px,  5.5vw,  72px);   /* project names      */
+            --fs-4xl:  clamp(64px,  9.0vw, 136px);   /* hero h1            */
+            --fs-5xl:  clamp(56px,  9.5vw, 136px);   /* contact heading    */
         }
 
         /* ─── BASE ───────────────────────────────────────── */
@@ -72,6 +85,7 @@
             background: var(--bg);
             color: var(--ink);
             font-family: var(--sans);
+            font-size: var(--fs-base);
             font-weight: 300;
             line-height: 1.6;
             overflow-x: hidden;
@@ -79,7 +93,7 @@
 
         /* ─── UTILITY ────────────────────────────────────── */
         .eyebrow {
-            font-size: 10px;
+            font-size: var(--fs-xs);
             font-weight: 500;
             letter-spacing: 0.18em;
             text-transform: uppercase;
@@ -113,7 +127,7 @@
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
-            font-size: 10px;
+            font-size: var(--fs-xs);
             font-weight: 400;
             letter-spacing: 0.16em;
             text-transform: uppercase;
@@ -127,7 +141,7 @@
         }
 
         .nav-links a {
-            font-size: 11px;
+            font-size: var(--fs-xs);
             font-weight: 400;
             letter-spacing: 0.1em;
             text-transform: uppercase;
@@ -179,7 +193,7 @@
 
         .hero-location {
             font-family: var(--serif);
-            font-size: 13px;
+            font-size: var(--fs-sm);
             font-style: italic;
             color: var(--muted);
         }
@@ -188,7 +202,7 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            font-size: 11px;
+            font-size: var(--fs-xs);
             font-weight: 400;
             letter-spacing: 0.08em;
             text-transform: uppercase;
@@ -211,7 +225,7 @@
 
         h1 {
             font-family: var(--serif);
-            font-size: clamp(64px, 9vw, 136px);
+            font-size: var(--fs-4xl);
             font-weight: 300;
             line-height: 0.9;
             letter-spacing: -0.025em;
@@ -230,7 +244,7 @@
         }
 
         .hero-desc {
-            font-size: clamp(13px, 1.4vw, 16px);
+            font-size: var(--fs-md);
             font-weight: 300;
             line-height: 1.7;
             max-width: 340px;
@@ -246,7 +260,7 @@
             align-items: center;
             gap: 10px;
             font-family: var(--sans);
-            font-size: 11px;
+            font-size: var(--fs-xs);
             font-weight: 500;
             letter-spacing: 0.12em;
             text-transform: uppercase;
@@ -274,7 +288,7 @@
         }
 
         .ticker-item {
-            font-size: 10px;
+            font-size: var(--fs-xs);
             font-weight: 500;
             letter-spacing: 0.16em;
             text-transform: uppercase;
@@ -285,7 +299,7 @@
         .ticker-sep {
             color: var(--accent);
             flex-shrink: 0;
-            font-size: 10px;
+            font-size: var(--fs-xs);
             line-height: 1;
             align-self: center;
         }
@@ -326,7 +340,7 @@
 
         .p-num {
             font-family: var(--serif);
-            font-size: 14px;
+            font-size: var(--fs-sm);
             font-weight: 400;
             color: var(--muted);
             font-variant-numeric: tabular-nums;
@@ -338,7 +352,7 @@
 
         .p-name {
             font-family: var(--serif);
-            font-size: clamp(38px, 5.5vw, 72px);
+            font-size: var(--fs-3xl);
             font-weight: 400;
             line-height: 1;
             letter-spacing: -0.015em;
@@ -346,7 +360,7 @@
         }
 
         .p-desc {
-            font-size: 13px;
+            font-size: var(--fs-base);
             font-weight: 300;
             line-height: 1.6;
             color: var(--muted);
@@ -357,7 +371,7 @@
         .tags { display: flex; flex-wrap: wrap; gap: 6px; }
 
         .tag {
-            font-size: 9.5px;
+            font-size: var(--fs-2xs);
             font-weight: 500;
             letter-spacing: 0.12em;
             text-transform: uppercase;
@@ -410,7 +424,7 @@
 
         .p-quote-text {
             font-family: var(--serif);
-            font-size: clamp(14px, 1.4vw, 18px);
+            font-size: var(--fs-lg);
             font-weight: 300;
             font-style: italic;
             line-height: 1.5;
@@ -440,7 +454,7 @@
         }
 
         .p-quote-who {
-            font-size: 11px;
+            font-size: var(--fs-xs);
             font-weight: 400;
             line-height: 1.3;
             white-space: nowrap;
@@ -448,7 +462,7 @@
         }
 
         .p-quote-role {
-            font-size: 10px;
+            font-size: var(--fs-xs);
             color: rgba(244,241,235,0.5);
             font-weight: 300;
         }
@@ -464,7 +478,7 @@
 
         .about-stmt {
             font-family: var(--serif);
-            font-size: clamp(24px, 2.8vw, 40px);
+            font-size: var(--fs-2xl);
             font-weight: 300;
             line-height: 1.22;
             letter-spacing: -0.01em;
@@ -479,7 +493,7 @@
         }
 
         .about-bio {
-            font-size: 15px;
+            font-size: var(--fs-md);
             font-weight: 300;
             line-height: 1.75;
             color: #3A3830;
@@ -496,15 +510,15 @@
         }
 
         .xp-period {
-            font-size: 10px;
+            font-size: var(--fs-xs);
             font-weight: 400;
             letter-spacing: 0.06em;
             color: var(--muted);
             padding-top: 2px;
         }
 
-        .xp-role { font-size: 13px; font-weight: 400; line-height: 1.35; }
-        .xp-co   { font-size: 12px; color: var(--muted); font-weight: 300; margin-top: 2px; }
+        .xp-role { font-size: var(--fs-base); font-weight: 400; line-height: 1.35; }
+        .xp-co   { font-size: var(--fs-sm); color: var(--muted); font-weight: 300; margin-top: 2px; }
 
         /* ─── SERVICES ───────────────────────────────────── */
         .svcs-grid {
@@ -519,7 +533,7 @@
 
         .svc-num {
             font-family: var(--serif);
-            font-size: 13px;
+            font-size: var(--fs-sm);
             font-weight: 400;
             color: var(--muted);
             margin-bottom: 20px;
@@ -527,14 +541,14 @@
 
         .svc-name {
             font-family: var(--serif);
-            font-size: clamp(18px, 1.8vw, 24px);
+            font-size: var(--fs-xl);
             font-weight: 400;
             line-height: 1.2;
             margin-bottom: 14px;
         }
 
         .svc-desc {
-            font-size: 13px;
+            font-size: var(--fs-base);
             font-weight: 300;
             line-height: 1.65;
             color: var(--muted);
@@ -553,7 +567,7 @@
         }
 
         .contact-pre {
-            font-size: 10px;
+            font-size: var(--fs-xs);
             font-weight: 500;
             letter-spacing: 0.18em;
             text-transform: uppercase;
@@ -563,7 +577,7 @@
 
         h2.contact-h {
             font-family: var(--serif);
-            font-size: clamp(56px, 9.5vw, 136px);
+            font-size: var(--fs-5xl);
             font-weight: 300;
             line-height: 0.9;
             letter-spacing: -0.025em;
@@ -583,7 +597,7 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            font-size: 11px;
+            font-size: var(--fs-xs);
             font-weight: 500;
             letter-spacing: 0.14em;
             text-transform: uppercase;
@@ -597,7 +611,7 @@
         .btn-fill:hover { opacity: 0.82; }
 
         .btn-ghost {
-            font-size: 11px;
+            font-size: var(--fs-xs);
             font-weight: 400;
             letter-spacing: 0.1em;
             text-transform: uppercase;
@@ -628,7 +642,7 @@
         }
 
         .f-copy {
-            font-size: 10px;
+            font-size: var(--fs-xs);
             font-weight: 300;
             letter-spacing: 0.06em;
             color: #7A7670;
@@ -637,7 +651,7 @@
         .f-links { display: flex; gap: 22px; }
 
         .f-links a {
-            font-size: 10px;
+            font-size: var(--fs-xs);
             font-weight: 400;
             letter-spacing: 0.12em;
             text-transform: uppercase;
