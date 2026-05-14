@@ -562,6 +562,8 @@
             z-index: 1;
         }
 
+
+
         .contact-pre {
             font-size: var(--fs-xs);
             font-weight: 500;
@@ -619,7 +621,14 @@
 
         .btn-ghost:hover { color: var(--dark-ink); border-color: var(--dark-ink); }
 
-        /* ─── FOOTER (merged into contact) ──────────────── */
+        /* ─── FOOTER ─────────────────────────────────────── */
+        footer {
+            background: #000;
+            color: var(--dark-ink);
+            display: flex;
+            flex-direction: column;
+        }
+
         .f-meta {
             padding: 22px var(--pad);
             border-top: 1px solid rgba(255,255,255,0.08);
@@ -628,8 +637,6 @@
             justify-content: space-between;
             flex-wrap: wrap;
             gap: 12px;
-            position: relative;
-            z-index: 1;
         }
 
         .f-copy {
@@ -997,7 +1004,7 @@
     </div>
 </section>
 
-<!-- ─── CONTACT + FOOTER ──────────────────────────────────── -->
+<!-- ─── CONTACT ───────────────────────────────────────────── -->
 <section id="contact" class="contact">
     <div class="contact-inner">
         <p class="contact-pre">Get in touch</p>
@@ -1015,6 +1022,10 @@
             <a href="mailto:nagendrax0@gmail.com" class="btn-ghost">nagendrax0@gmail.com</a>
         </div>
     </div>
+</section>
+
+<!-- ─── FOOTER ────────────────────────────────────────────── -->
+<footer>
     <div class="f-meta">
         <span class="f-copy">© 2026 Nagendra Shekhawat · Bangalore, India</span>
         <div class="f-links">
@@ -1026,7 +1037,7 @@
     <div class="f-wordmark">
         <img src="./images/nagendrax0 image.webp" alt="NAGENDRA X0">
     </div>
-</section>
+</footer>
 
 <script>
 (function () {
@@ -1085,8 +1096,8 @@
                 exc[i] = lerp(exc[i], prox, prox > exc[i] ? 0.1 : 0.03);
                 const e = exc[i];
 
-                // base 0.08 opacity → up to 0.65 when excited
-                const alpha = lerp(0.08, 0.65, e);
+                // base ~zero → up to 0.65 when excited
+                const alpha = lerp(0.025, 0.65, e);
                 // cream #F4F1EB → orange #C95320
                 const ri = Math.round(lerp(244, 201, e));
                 const gi = Math.round(lerp(241,  83, e));
