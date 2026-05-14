@@ -416,12 +416,17 @@
 
         .p-quote-text {
             font-family: 'Geist Mono', monospace;
-            font-size: var(--fs-lg);
+            font-size: clamp(11px, 1vw, 13px);
             font-weight: 300;
             font-style: normal;
-            line-height: 1.5;
-            color: var(--bg);
+            line-height: 1.7;
+            color: rgba(244,241,235,0.45);
             flex: 1;
+        }
+
+        .p-quote-hl {
+            color: var(--bg);
+            font-weight: 400;
         }
 
         .p-quote-attr {
@@ -886,7 +891,7 @@
         <li class="p-quote">
             <div class="p-quote-inner">
                 <span class="p-quote-mark">"</span>
-                <p class="p-quote-text">The designs and level of detail stood out, as did the willingness to iterate.</p>
+                <p class="p-quote-text">It was an awesome experience. <span class="p-quote-hl">The designs and level of detail stood out</span> as well as <span class="p-quote-hl">willingness for multiple iterations based on feedback.</span> It was made sure that <span class="p-quote-hl">we felt right before finalizing anything.</span></p>
                 <div class="p-quote-attr">
                     <div class="p-quote-avatar">
                         <img src="./images/sankalp.png" alt="Sankalp Garg">
