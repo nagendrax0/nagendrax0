@@ -457,23 +457,9 @@
         .about-inner {
             padding: clamp(48px, 8vw, 96px) var(--pad);
             display: grid;
-            grid-template-columns: 280px 1fr 1fr;
-            gap: clamp(32px, 4vw, 64px);
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(32px, 6vw, 96px);
             align-items: start;
-        }
-
-        .about-photo {
-            aspect-ratio: 3/4;
-            border-radius: 3px;
-            overflow: hidden;
-            background: var(--rule);
-        }
-
-        .about-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: top center;
         }
 
         .about-stmt {
@@ -679,7 +665,12 @@
             .nav-center { display: none; }
 
             .hero-body { grid-template-columns: 1fr; }
-            .hero-photo { display: none; }
+            .hero-photo {
+                display: block;
+                aspect-ratio: 4/3;
+                border-left: none;
+                border-top: 1px solid var(--rule);
+            }
 
             .hero-bottom {
                 grid-template-columns: 1fr;
@@ -695,15 +686,16 @@
 
             .p-visual { grid-column: 2; grid-row: 2; }
 
-            .testi-inner {
-                grid-template-columns: 1fr;
+            .p-quote-inner {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 24px var(--pad);
+                gap: 16px;
             }
 
-            .testi-brand { text-align: left; }
-            .testi-tags { justify-content: flex-start; }
+            .p-quote-mark { font-size: 40px; margin-top: -4px; }
 
             .about-inner { grid-template-columns: 1fr 1fr; }
-            .about-photo { grid-column: 1 / -1; aspect-ratio: 16/9; }
 
             .svcs-grid { grid-template-columns: 1fr 1fr; }
         }
@@ -713,7 +705,7 @@
             .nav-links { gap: 16px; }
             h1 { letter-spacing: -0.03em; }
             .about-inner { grid-template-columns: 1fr; }
-            .about-photo { aspect-ratio: 3/4; max-height: 420px; }
+            .hero-photo { aspect-ratio: 3/4; }
         }
     </style>
 </head>
@@ -927,9 +919,6 @@
         <span class="eyebrow">4+ Years</span>
     </div>
     <div class="about-inner">
-        <div class="about-photo">
-            <img src="./images/project photo/nagendra hero shot.webp" alt="Nagendra Shekhawat">
-        </div>
         <p class="about-stmt">
             Designer who thinks in <em>systems</em>, builds in no-code, and sweats every detail that moves revenue.
         </p>
@@ -944,7 +933,6 @@
                         <span class="xp-period">2025 – Present</span>
                         <div>
                             <div class="xp-role">Independent Designer</div>
-                            <div class="xp-co">x0.studio</div>
                         </div>
                     </li>
                     <li class="xp-item">
