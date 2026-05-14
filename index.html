@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nagendra Shekhawat — B2B SaaS Designer & Developer</title>
+    <meta name="description" content="Independent B2B SaaS designer and Webflow/Framer developer based in Bangalore. I craft websites for startups who want to convert clients and drive serious revenue.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+
+    <style>
+        /* ─── RESET ─────────────────────────────────────── */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+        img, svg { display: block; max-width: 100%; }
+        a { color: inherit; text-decoration: none; }
+        button { cursor: pointer; background: none; border: none; font: inherit; }
+
+        /* ─── TOKENS ─────────────────────────────────────── */
+        :root {
+            --bg:        #F4F1EB;
+            --ink:       #18160F;
+            --muted:     #8C8579;
+            --rule:      #DED9CF;
+            --accent:    #C95320;
+            --dark-bg:   #18160F;
+            --dark-ink:  #F4F1EB;
+
+            --serif: 'Cormorant Garamond', Georgia, serif;
+            --sans:  'DM Sans', system-ui, -apple-system, sans-serif;
+
+            --pad: clamp(20px, 5vw, 72px);
+        }
+
+        /* ─── BASE ───────────────────────────────────────── */
+        body {
+            background: var(--bg);
+            color: var(--ink);
+            font-family: var(--sans);
+            font-weight: 300;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ─── UTILITY ────────────────────────────────────── */
+        .eyebrow {
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        .rule-h { border: none; border-top: 1px solid var(--rule); margin: 0; }
+
+        /* ─── NAV ────────────────────────────────────────── */
+        nav {
+            position: fixed;
+            inset: 0 0 auto 0;
+            z-index: 200;
+            height: 52px;
+            background: var(--bg);
+            border-bottom: 1px solid var(--rule);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 var(--pad);
+        }
+
+        .nav-mono {
+            font-family: var(--serif);
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+        }
+
+        .nav-center {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 10px;
+            font-weight: 400;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            font-size: 11px;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--accent); }
+
+        /* ─── HERO ───────────────────────────────────────── */
+        .hero {
+            padding-top: 52px;
+            min-height: 100svh;
+            display: grid;
+            grid-template-rows: 1fr auto;
+            border-bottom: 1px solid var(--rule);
+        }
+
+        .hero-body {
+            display: grid;
+            grid-template-columns: 1fr minmax(300px, 44%);
+        }
+
+        .hero-left {
+            padding: clamp(36px, 6vw, 88px) var(--pad) clamp(28px, 4vw, 56px);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .hero-photo {
+            border-left: 1px solid var(--rule);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .hero-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+        }
+
+        .hero-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .hero-location {
+            font-family: var(--serif);
+            font-size: 13px;
+            font-style: italic;
+            color: var(--muted);
+        }
+
+        .hero-avail {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 11px;
+            font-weight: 400;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .avail-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #3DB870;
+            flex-shrink: 0;
+        }
+
+        .hero-headline {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        h1 {
+            font-family: var(--serif);
+            font-size: clamp(64px, 9vw, 136px);
+            font-weight: 300;
+            line-height: 0.9;
+            letter-spacing: -0.025em;
+        }
+
+        h1 em {
+            font-style: italic;
+            color: var(--muted);
+        }
+
+        .hero-bottom {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--pad);
+            align-items: end;
+        }
+
+        .hero-desc {
+            font-size: clamp(13px, 1.4vw, 16px);
+            font-weight: 300;
+            line-height: 1.7;
+            max-width: 340px;
+        }
+
+        .hero-cta {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--sans);
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 13px 26px;
+            border: 1px solid var(--ink);
+            border-radius: 2px;
+            transition: background 0.22s, color 0.22s;
+        }
+
+        .btn-outline:hover { background: var(--ink); color: var(--bg); }
+
+        /* ─── TICKER ─────────────────────────────────────── */
+        .ticker {
+            border-top: 1px solid var(--rule);
+            padding: 13px 0;
+            overflow: hidden;
+        }
+
+        .ticker-track {
+            display: flex;
+            gap: 0;
+            white-space: nowrap;
+            animation: scroll-left 26s linear infinite;
+            width: max-content;
+        }
+
+        .ticker-item {
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--muted);
+            padding: 0 28px;
+        }
+
+        .ticker-sep {
+            color: var(--accent);
+            flex-shrink: 0;
+            font-size: 10px;
+            line-height: 1;
+            align-self: center;
+        }
+
+        @keyframes scroll-left {
+            from { transform: translateX(0); }
+            to   { transform: translateX(-50%); }
+        }
+
+        /* ─── SECTION FRAME ──────────────────────────────── */
+        .s-head {
+            padding: 17px var(--pad);
+            border-bottom: 1px solid var(--rule);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        section { border-bottom: 1px solid var(--rule); }
+
+        /* ─── WORK ───────────────────────────────────────── */
+        .work-list { list-style: none; }
+
+        .p-item { border-bottom: 1px solid var(--rule); }
+        .p-item:last-child { border-bottom: none; }
+
+        .p-row {
+            padding: clamp(28px, 4.5vw, 60px) var(--pad);
+            display: grid;
+            grid-template-columns: 72px 1fr 1.4fr;
+            gap: clamp(20px, 3vw, 48px);
+            align-items: center;
+            transition: background 0.28s ease;
+            cursor: pointer;
+        }
+
+        .p-row:hover { background: rgba(0,0,0,0.035); }
+
+        .p-num {
+            font-family: var(--serif);
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--muted);
+            font-variant-numeric: tabular-nums;
+            align-self: start;
+            padding-top: 6px;
+        }
+
+        .p-meta { }
+
+        .p-name {
+            font-family: var(--serif);
+            font-size: clamp(38px, 5.5vw, 72px);
+            font-weight: 400;
+            line-height: 1;
+            letter-spacing: -0.015em;
+            margin-bottom: 16px;
+        }
+
+        .p-desc {
+            font-size: 13px;
+            font-weight: 300;
+            line-height: 1.6;
+            color: var(--muted);
+            margin-bottom: 18px;
+            max-width: 320px;
+        }
+
+        .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+
+        .tag {
+            font-size: 9.5px;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border: 1px solid var(--rule);
+            border-radius: 2px;
+            color: var(--muted);
+        }
+
+        .p-visual {
+            aspect-ratio: 16/9;
+            border-radius: 3px;
+            overflow: hidden;
+            background: var(--rule);
+            position: relative;
+        }
+
+        .p-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.55s cubic-bezier(0.33, 1, 0.68, 1);
+        }
+
+        .p-row:hover .p-visual img { transform: scale(1.05); }
+
+
+        /* ─── INLINE TESTIMONIAL ─────────────────────────── */
+        .p-quote {
+            border-bottom: 1px solid var(--rule);
+            background: var(--ink);
+        }
+
+        .p-quote-inner {
+            padding: 28px var(--pad) 28px calc(var(--pad) + 72px + clamp(20px, 3vw, 48px));
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .p-quote-mark {
+            font-family: var(--serif);
+            font-size: 56px;
+            font-weight: 300;
+            line-height: 1;
+            color: rgba(255,255,255,0.2);
+            flex-shrink: 0;
+            margin-top: -10px;
+        }
+
+        .p-quote-text {
+            font-family: var(--serif);
+            font-size: clamp(14px, 1.4vw, 18px);
+            font-weight: 300;
+            font-style: italic;
+            line-height: 1.5;
+            color: var(--bg);
+            flex: 1;
+        }
+
+        .p-quote-attr {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+
+        .p-quote-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .p-quote-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .p-quote-who {
+            font-size: 11px;
+            font-weight: 400;
+            line-height: 1.3;
+            white-space: nowrap;
+            color: var(--bg);
+        }
+
+        .p-quote-role {
+            font-size: 10px;
+            color: rgba(244,241,235,0.5);
+            font-weight: 300;
+        }
+
+        /* ─── ABOUT ──────────────────────────────────────── */
+        .about-inner {
+            padding: clamp(48px, 8vw, 96px) var(--pad);
+            display: grid;
+            grid-template-columns: 280px 1fr 1fr;
+            gap: clamp(32px, 4vw, 64px);
+            align-items: start;
+        }
+
+        .about-photo {
+            aspect-ratio: 3/4;
+            border-radius: 3px;
+            overflow: hidden;
+            background: var(--rule);
+        }
+
+        .about-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+        }
+
+        .about-stmt {
+            font-family: var(--serif);
+            font-size: clamp(24px, 2.8vw, 40px);
+            font-weight: 300;
+            line-height: 1.22;
+            letter-spacing: -0.01em;
+        }
+
+        .about-stmt em { font-style: italic; }
+
+        .about-right {
+            display: flex;
+            flex-direction: column;
+            gap: 36px;
+        }
+
+        .about-bio {
+            font-size: 15px;
+            font-weight: 300;
+            line-height: 1.75;
+            color: #3A3830;
+        }
+
+        .xp-list { list-style: none; border-top: 1px solid var(--rule); }
+
+        .xp-item {
+            display: grid;
+            grid-template-columns: 108px 1fr;
+            gap: 20px;
+            padding: 14px 0;
+            border-bottom: 1px solid var(--rule);
+        }
+
+        .xp-period {
+            font-size: 10px;
+            font-weight: 400;
+            letter-spacing: 0.06em;
+            color: var(--muted);
+            padding-top: 2px;
+        }
+
+        .xp-role { font-size: 13px; font-weight: 400; line-height: 1.35; }
+        .xp-co   { font-size: 12px; color: var(--muted); font-weight: 300; margin-top: 2px; }
+
+        /* ─── SERVICES ───────────────────────────────────── */
+        .svcs-grid {
+            padding: clamp(40px, 7vw, 88px) var(--pad);
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: clamp(24px, 3vw, 48px);
+            align-items: start;
+        }
+
+        .svc { border-top: 1px solid var(--rule); padding-top: 24px; }
+
+        .svc-num {
+            font-family: var(--serif);
+            font-size: 13px;
+            font-weight: 400;
+            color: var(--muted);
+            margin-bottom: 20px;
+        }
+
+        .svc-name {
+            font-family: var(--serif);
+            font-size: clamp(18px, 1.8vw, 24px);
+            font-weight: 400;
+            line-height: 1.2;
+            margin-bottom: 14px;
+        }
+
+        .svc-desc {
+            font-size: 13px;
+            font-weight: 300;
+            line-height: 1.65;
+            color: var(--muted);
+        }
+
+
+        /* ─── CONTACT ────────────────────────────────────── */
+        .contact {
+            background: #000;
+            color: var(--dark-ink);
+            border-bottom: none;
+        }
+
+        .contact-inner {
+            padding: clamp(72px, 12vw, 148px) var(--pad) clamp(56px, 8vw, 100px);
+        }
+
+        .contact-pre {
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #7A7670;
+            margin-bottom: 36px;
+        }
+
+        h2.contact-h {
+            font-family: var(--serif);
+            font-size: clamp(56px, 9.5vw, 136px);
+            font-weight: 300;
+            line-height: 0.9;
+            letter-spacing: -0.025em;
+            margin-bottom: 60px;
+        }
+
+        h2.contact-h em { font-style: italic; color: #7A7670; }
+
+        .contact-actions {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .btn-fill {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            padding: 14px 28px;
+            background: var(--dark-ink);
+            color: var(--dark-bg);
+            border-radius: 2px;
+            transition: opacity 0.2s;
+        }
+
+        .btn-fill:hover { opacity: 0.82; }
+
+        .btn-ghost {
+            font-size: 11px;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #7A7670;
+            border-bottom: 1px solid #7A7670;
+            padding-bottom: 2px;
+            transition: color 0.2s, border-color 0.2s;
+        }
+
+        .btn-ghost:hover { color: var(--dark-ink); border-color: var(--dark-ink); }
+
+        /* ─── FOOTER ─────────────────────────────────────── */
+        footer {
+            background: #000;
+            color: var(--dark-ink);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .f-meta {
+            padding: 22px var(--pad);
+            border-top: 1px solid rgba(255,255,255,0.08);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .f-copy {
+            font-size: 10px;
+            font-weight: 300;
+            letter-spacing: 0.06em;
+            color: #7A7670;
+        }
+
+        .f-links { display: flex; gap: 22px; }
+
+        .f-links a {
+            font-size: 10px;
+            font-weight: 400;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #7A7670;
+            transition: color 0.2s;
+        }
+
+        .f-links a:hover { color: var(--dark-ink); }
+
+        .f-wordmark {
+            display: block;
+            width: 100%;
+            line-height: 0;
+        }
+
+        .f-wordmark img {
+            width: 100%;
+            height: auto;
+            display: block;
+            opacity: 0.18;
+        }
+
+        /* ─── RESPONSIVE ─────────────────────────────────── */
+        @media (max-width: 860px) {
+            .nav-center { display: none; }
+
+            .hero-body { grid-template-columns: 1fr; }
+            .hero-photo { display: none; }
+
+            .hero-bottom {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .hero-cta { justify-content: flex-start; }
+
+            .p-row {
+                grid-template-columns: 48px 1fr;
+                grid-template-rows: auto auto;
+            }
+
+            .p-visual { grid-column: 2; grid-row: 2; }
+
+            .testi-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .testi-brand { text-align: left; }
+            .testi-tags { justify-content: flex-start; }
+
+            .about-inner { grid-template-columns: 1fr 1fr; }
+            .about-photo { grid-column: 1 / -1; aspect-ratio: 16/9; }
+
+            .svcs-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 520px) {
+            .svcs-grid { grid-template-columns: 1fr; }
+            .nav-links { gap: 16px; }
+            h1 { letter-spacing: -0.03em; }
+            .about-inner { grid-template-columns: 1fr; }
+            .about-photo { aspect-ratio: 3/4; max-height: 420px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ─── NAV ──────────────────────────────────────────────── -->
+<nav>
+    <a href="/" class="nav-mono"><img src="./images/x0-logo-black.svg" alt="x0" style="height:22px;width:auto;display:block;"></a>
+    <span class="nav-center">Nagendra Shekhawat</span>
+    <ul class="nav-links">
+        <li><a href="#work">Work</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- ─── HERO ─────────────────────────────────────────────── -->
+<section class="hero">
+    <div class="hero-body">
+        <div class="hero-left">
+            <div class="hero-top">
+                <span class="hero-location">Bangalore, India</span>
+                <div class="hero-avail">
+                    <span class="avail-dot"></span>
+                    Available for projects
+                </div>
+            </div>
+
+            <div class="hero-headline">
+                <h1>
+                    Design<br>
+                    &amp;&nbsp;<em>Build</em><br>
+                    for SaaS
+                </h1>
+            </div>
+
+            <div class="hero-bottom">
+                <p class="hero-desc">
+                    I craft websites for startups who want to convert clients and drive serious revenue — from positioning and visual direction in Figma, to full builds in Webflow or Framer.
+                </p>
+                <div class="hero-cta">
+                    <a href="https://cal.com/nagendrax0/book-a-call" target="_blank" class="btn-outline">
+                        Book a call
+                        <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+                            <path d="M2 6.5H11M11 6.5L7 2.5M11 6.5L7 10.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-photo">
+            <img src="./images/project photo/nagendra hero shot.webp" alt="Nagendra Shekhawat">
+        </div>
+    </div>
+
+    <div class="ticker">
+        <div class="ticker-track">
+            <!-- set 1 -->
+            <span class="ticker-item">Webflow Development</span>
+            <span class="ticker-sep">·</span>
+            <span class="ticker-item">Framer Development</span>
+            <span class="ticker-sep">·</span>
+            <span class="ticker-item">Figma Design</span>
+            <span class="ticker-sep">·</span>
+            <span class="ticker-item">Design Systems</span>
+            <span class="ticker-sep">·</span>
+            <span class="ticker-item">Product Animation</span>
+            <span class="ticker-sep">·</span>
+            <span class="ticker-item">B2B SaaS</span>
+            <span class="ticker-sep">·</span>
+            <span class="ticker-item">Marketing Websites</span>
+            <span class="ticker-sep">·</span>
+            <span class="ticker-item">Visual Direction</span>
+            <span class="ticker-sep">·</span>
+            <span class="ticker-item">Positioning & Messaging</span>
+            <span class="ticker-sep">·</span>
+            <!-- set 2 (duplicate for seamless loop) -->
+            <span class="ticker-item">Webflow Development</span>
+            <span class="ticker-sep">·</span>
+            <span class="ticker-item">Framer Development</span>
+            <span class="ticker-sep">·</span>
+            <span class="ticker-item">Figma Design</span>
+            <span class="ticker-sep">·</span>
+            <span class="ticker-item">Design Systems</span>
+            <span class="ticker-sep">·</span>
+            <span class="ticker-item">Product Animation</span>
+            <span class="ticker-sep">·</span>
+            <span class="ticker-item">B2B SaaS</span>
+            <span class="ticker-sep">·</span>
+            <span class="ticker-item">Marketing Websites</span>
+            <span class="ticker-sep">·</span>
+            <span class="ticker-item">Visual Direction</span>
+            <span class="ticker-sep">·</span>
+            <span class="ticker-item">Positioning & Messaging</span>
+            <span class="ticker-sep">·</span>
+        </div>
+    </div>
+</section>
+
+<!-- ─── WORK ──────────────────────────────────────────────── -->
+<section id="work">
+    <div class="s-head">
+        <span class="eyebrow">Selected Work</span>
+        <span class="eyebrow">2022 — 2025</span>
+    </div>
+    <ul class="work-list">
+
+        <!-- 01 Optexity -->
+        <li class="p-item">
+            <a href="https://optexity.com" target="_blank" rel="noopener" class="p-row">
+                <span class="p-num">01</span>
+                <div class="p-meta">
+                    <h2 class="p-name">Optexity</h2>
+                    <p class="p-desc">AI automation platform — end-to-end website design and Webflow development with a custom design system and product animations.</p>
+                    <div class="tags">
+                        <span class="tag">Design System</span>
+                        <span class="tag">Product Animation</span>
+                        <span class="tag">Website Design</span>
+                        <span class="tag">Webflow Dev</span>
+                    </div>
+                </div>
+                <div class="p-visual">
+                    <img src="./images/project photo/optexity mockup.webp" alt="Optexity website — AI automation platform" loading="lazy">
+                </div>
+            </a>
+        </li>
+        <li class="p-quote">
+            <div class="p-quote-inner">
+                <span class="p-quote-mark">"</span>
+                <p class="p-quote-text">The designs and level of detail stood out, as did the willingness to iterate.</p>
+                <div class="p-quote-attr">
+                    <div class="p-quote-avatar">
+                        <img src="./images/sankalp.png" alt="Sankalp Garg">
+                    </div>
+                    <div>
+                        <div class="p-quote-who">Sankalp Garg</div>
+                        <div class="p-quote-role">Co-Founder, Optexity</div>
+                    </div>
+                </div>
+            </div>
+        </li>
+
+        <!-- 02 Goodera -->
+        <li class="p-item">
+            <a href="https://www.goodera.com" target="_blank" rel="noopener" class="p-row">
+                <span class="p-num">02</span>
+                <div class="p-meta">
+                    <h2 class="p-name">Goodera</h2>
+                    <p class="p-desc">CSR platform redesign — 1.5+ year engagement covering the full web presence with a scalable design system and marketing visual language.</p>
+                    <div class="tags">
+                        <span class="tag">Design System</span>
+                        <span class="tag">Visual Design</span>
+                        <span class="tag">Website Design</span>
+                        <span class="tag">Webflow Dev</span>
+                    </div>
+                </div>
+                <div class="p-visual">
+                    <img src="./images/project photo/goodera mockup.webp" alt="Goodera — CSR platform website" loading="lazy">
+                </div>
+            </a>
+        </li>
+
+        <!-- 03 Astuto -->
+        <li class="p-item">
+            <a href="https://www.astuto.ai" target="_blank" rel="noopener" class="p-row">
+                <span class="p-num">03</span>
+                <div class="p-meta">
+                    <h2 class="p-name">Astuto</h2>
+                    <p class="p-desc">Cloud cost optimization platform — design system, animated product demos, and Webflow site built to communicate complex AI-driven savings.</p>
+                    <div class="tags">
+                        <span class="tag">Design System</span>
+                        <span class="tag">Product Animation</span>
+                        <span class="tag">Website Design</span>
+                        <span class="tag">Webflow Dev</span>
+                    </div>
+                </div>
+                <div class="p-visual">
+                    <img src="./images/project photo/astuto.webp" alt="Astuto — cloud cost optimization platform" loading="lazy">
+                </div>
+            </a>
+        </li>
+
+        <!-- 04 Diffie -->
+        <li class="p-item">
+            <a href="https://diffie.ai" target="_blank" rel="noopener" class="p-row">
+                <span class="p-num">04</span>
+                <div class="p-meta">
+                    <h2 class="p-name">Diffie</h2>
+                    <p class="p-desc">AI-powered testing agent — brand identity, design system, and animated marketing website communicating developer-first product value.</p>
+                    <div class="tags">
+                        <span class="tag">Design System</span>
+                        <span class="tag">Product Animation</span>
+                        <span class="tag">Website Design</span>
+                    </div>
+                </div>
+                <div class="p-visual">
+                    <img src="./images/project photo/diffie.webp" alt="Diffie — AI-powered testing agent" loading="lazy">
+                </div>
+            </a>
+        </li>
+
+    </ul>
+</section>
+
+
+
+<!-- ─── ABOUT ─────────────────────────────────────────────── -->
+<section id="about">
+    <div class="s-head">
+        <span class="eyebrow">About</span>
+        <span class="eyebrow">4+ Years</span>
+    </div>
+    <div class="about-inner">
+        <div class="about-photo">
+            <img src="./images/project photo/nagendra hero shot.webp" alt="Nagendra Shekhawat">
+        </div>
+        <p class="about-stmt">
+            Designer who thinks in <em>systems</em>, builds in no-code, and sweats every detail that moves revenue.
+        </p>
+        <div class="about-right">
+            <p class="about-bio">
+                With 4+ years working alongside B2B SaaS founders, I bring positioning, messaging, and visual direction together — from Figma strategy through to shipped builds in Webflow or Framer. Currently expanding into product design, combining design depth with product thinking and user flows.
+            </p>
+            <div>
+                <div class="eyebrow" style="margin-bottom: 16px;">Experience</div>
+                <ul class="xp-list">
+                    <li class="xp-item">
+                        <span class="xp-period">2024 – 2025</span>
+                        <div>
+                            <div class="xp-role">Design Partner</div>
+                            <div class="xp-co">Team0x1</div>
+                        </div>
+                    </li>
+                    <li class="xp-item">
+                        <span class="xp-period">2022 – 2024</span>
+                        <div>
+                            <div class="xp-role">Design & No-code Developer</div>
+                            <div class="xp-co">Recurr</div>
+                        </div>
+                    </li>
+                    <li class="xp-item">
+                        <span class="xp-period">2022</span>
+                        <div>
+                            <div class="xp-role">Design & No-code Developer</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── SERVICES ──────────────────────────────────────────── -->
+<section id="services">
+    <div class="s-head">
+        <span class="eyebrow">Services</span>
+    </div>
+    <div class="svcs-grid">
+        <div class="svc">
+            <div class="svc-num">01</div>
+            <h3 class="svc-name">Website Design & Development</h3>
+            <p class="svc-desc">High-converting marketing sites for B2B SaaS — from positioning to pixels to published, in Webflow or Framer.</p>
+        </div>
+        <div class="svc">
+            <div class="svc-num">02</div>
+            <h3 class="svc-name">Design Systems</h3>
+            <p class="svc-desc">Scalable component libraries in Figma and no-code. Built for teams who need to ship fast without sacrificing consistency.</p>
+        </div>
+        <div class="svc">
+            <div class="svc-num">03</div>
+            <h3 class="svc-name">Product Animation</h3>
+            <p class="svc-desc">Motion that communicates product value — onboarding flows, feature demos, interactive hero sections.</p>
+        </div>
+        <div class="svc">
+            <div class="svc-num">04</div>
+            <h3 class="svc-name">Visual Direction</h3>
+            <p class="svc-desc">Brand strategy and visual identity for early-stage startups — positioning, messaging frameworks, and art direction.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ─── CONTACT ───────────────────────────────────────────── -->
+<section id="contact" class="contact">
+    <div class="contact-inner">
+        <p class="contact-pre">Get in touch</p>
+        <h2 class="contact-h">
+            Let's work<br>
+            <em>together</em>
+        </h2>
+        <div class="contact-actions">
+            <a href="https://cal.com/nagendrax0/book-a-call" target="_blank" rel="noopener" class="btn-fill">
+                Book a call
+                <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+                    <path d="M2 6.5H11M11 6.5L7 2.5M11 6.5L7 10.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+            <a href="mailto:nagendrax0@gmail.com" class="btn-ghost">nagendrax0@gmail.com</a>
+        </div>
+    </div>
+</section>
+
+<!-- ─── FOOTER ────────────────────────────────────────────── -->
+<footer>
+    <div class="f-meta">
+        <span class="f-copy">© 2025 Nagendra Shekhawat · Bangalore, India</span>
+        <div class="f-links">
+            <a href="https://www.linkedin.com/in/nagendrax0" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="https://cal.com/nagendrax0/book-a-call" target="_blank" rel="noopener">Book a Call</a>
+            <a href="mailto:nagendrax0@gmail.com">Email</a>
+        </div>
+    </div>
+    <div class="f-wordmark">
+        <img src="./images/nagendrax0 image.webp" alt="NAGENDRA X0">
+    </div>
+</footer>
+
+</body>
+</html>
