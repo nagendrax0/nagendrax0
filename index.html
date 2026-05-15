@@ -392,40 +392,49 @@
 
 
         /* ─── INLINE TESTIMONIAL ─────────────────────────── */
-        .p-quote {
-            border-bottom: 1px solid var(--rule);
-            background: var(--ink);
-        }
+        .p-quote { border-bottom: 1px solid var(--rule); }
 
         .p-quote-inner {
-            padding: 28px var(--pad) 28px calc(var(--pad) + 72px + clamp(20px, 3vw, 48px));
-            display: flex;
+            padding: clamp(28px, 5vw, 56px) var(--pad);
+            display: grid;
+            grid-template-columns: clamp(120px, 15vw, 200px) 1fr auto;
+            gap: clamp(24px, 4vw, 56px);
             align-items: center;
-            gap: 32px;
         }
 
-        .p-quote-mark {
-            font-family: var(--serif);
-            font-size: 56px;
-            font-weight: 300;
-            line-height: 1;
-            color: rgba(255,255,255,0.2);
-            flex-shrink: 0;
-            margin-top: -10px;
+        .p-quote-photo {
+            aspect-ratio: 3/4;
+            border-radius: 3px;
+            overflow: hidden;
+            background: var(--rule);
+        }
+
+        .p-quote-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+        }
+
+        .p-quote-body {
+            display: flex;
+            flex-direction: column;
+            gap: clamp(20px, 3vw, 36px);
+            align-self: stretch;
+            justify-content: space-between;
+            padding: clamp(4px, 1vw, 12px) 0;
         }
 
         .p-quote-text {
             font-family: 'Geist Mono', monospace;
             font-size: clamp(11px, 1vw, 13px);
             font-weight: 300;
-            font-style: normal;
-            line-height: 1.7;
-            color: rgba(244,241,235,0.45);
-            flex: 1;
+            line-height: 1.8;
+            color: var(--muted);
         }
 
         .p-quote-hl {
-            color: var(--bg);
+            color: var(--ink);
             font-weight: 400;
         }
 
@@ -433,35 +442,35 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            flex-shrink: 0;
         }
 
-        .p-quote-avatar {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            overflow: hidden;
-            flex-shrink: 0;
-        }
-
-        .p-quote-avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        .p-quote-co-logo {
+            height: 16px;
+            width: auto;
+            opacity: 0.55;
         }
 
         .p-quote-who {
-            font-size: var(--fs-xs);
-            font-weight: 400;
+            font-size: var(--fs-sm);
+            font-weight: 500;
+            color: var(--ink);
             line-height: 1.3;
-            white-space: nowrap;
-            color: var(--bg);
         }
 
         .p-quote-role {
             font-size: var(--fs-xs);
-            color: rgba(244,241,235,0.5);
+            color: var(--muted);
             font-weight: 300;
+        }
+
+        .p-quote-num {
+            font-family: var(--serif);
+            font-size: clamp(72px, 9vw, 128px);
+            font-weight: 300;
+            color: var(--rule);
+            line-height: 1;
+            letter-spacing: -0.02em;
+            user-select: none;
         }
 
         /* ─── ABOUT ──────────────────────────────────────── */
@@ -744,13 +753,13 @@
             .p-visual { grid-column: 2; grid-row: 2; }
 
             .p-quote-inner {
-                flex-direction: column;
-                align-items: flex-start;
+                grid-template-columns: 72px 1fr;
                 padding: 24px var(--pad);
-                gap: 16px;
+                gap: 16px 20px;
+                align-items: start;
             }
 
-            .p-quote-mark { font-size: 40px; margin-top: -4px; }
+            .p-quote-num { display: none; }
 
             .about-inner { grid-template-columns: 1fr 1fr; }
 
@@ -800,7 +809,7 @@
 
             <div class="hero-bottom">
                 <p class="hero-desc">
-                    I craft websites for startups who want to convert clients and drive serious revenue — from positioning and visual direction in Figma, to full builds in Webflow or Framer.
+                    I design and build websites for B2B SaaS startups. From the first Figma concepts to a live site in Webflow or Framer.
                 </p>
                 <div class="hero-cta">
                     <a href="https://cal.com/nagendrax0/book-a-call" target="_blank" class="btn-outline">
@@ -865,7 +874,7 @@
 <section id="work">
     <div class="s-head">
         <span class="eyebrow">Selected Work</span>
-        <span class="eyebrow">2022 — 2025</span>
+        <span class="eyebrow">2022–2026</span>
     </div>
     <ul class="work-list">
 
@@ -875,7 +884,7 @@
                 <span class="p-num">01</span>
                 <div class="p-meta">
                     <h2 class="p-name">Optexity</h2>
-                    <p class="p-desc">AI automation platform — end-to-end website design and Webflow development with a custom design system and product animations.</p>
+                    <p class="p-desc">Website design and Webflow build for an AI automation platform. Custom design system and product animations included.</p>
                     <div class="tags">
                         <span class="tag">Design System</span>
                         <span class="tag">Product Animation</span>
@@ -890,17 +899,20 @@
         </li>
         <li class="p-quote">
             <div class="p-quote-inner">
-                <span class="p-quote-mark">"</span>
-                <p class="p-quote-text">It was an awesome experience. <span class="p-quote-hl">The designs and level of detail stood out</span> as well as <span class="p-quote-hl">willingness for multiple iterations based on feedback.</span> It was made sure that <span class="p-quote-hl">we felt right before finalizing anything.</span></p>
-                <div class="p-quote-attr">
-                    <div class="p-quote-avatar">
-                        <img src="./images/sankalp.png" alt="Sankalp Garg">
-                    </div>
-                    <div>
-                        <div class="p-quote-who">Sankalp Garg</div>
-                        <div class="p-quote-role">Co-Founder, Optexity</div>
+                <div class="p-quote-photo">
+                    <img src="./images/sankalp.png" alt="Sankalp Garg">
+                </div>
+                <div class="p-quote-body">
+                    <p class="p-quote-text">It was an awesome experience. <span class="p-quote-hl">The designs and level of detail stood out</span> as well as <span class="p-quote-hl">willingness for multiple iterations based on feedback.</span> It was made sure that <span class="p-quote-hl">we felt right before finalizing anything.</span></p>
+                    <div class="p-quote-attr">
+                        <img src="./images/optexity-logo.svg" alt="Optexity" class="p-quote-co-logo">
+                        <div>
+                            <div class="p-quote-who">Sankalp Garg</div>
+                            <div class="p-quote-role">Co-Founder, Optexity</div>
+                        </div>
                     </div>
                 </div>
+                <div class="p-quote-num">01</div>
             </div>
         </li>
 
@@ -910,7 +922,7 @@
                 <span class="p-num">02</span>
                 <div class="p-meta">
                     <h2 class="p-name">Goodera</h2>
-                    <p class="p-desc">CSR platform redesign — 1.5+ year engagement covering the full web presence with a scalable design system and marketing visual language.</p>
+                    <p class="p-desc">Worked with Goodera for over a year redesigning their full web presence. Built a design system that scaled across marketing and product.</p>
                     <div class="tags">
                         <span class="tag">Design System</span>
                         <span class="tag">Visual Design</span>
@@ -930,7 +942,7 @@
                 <span class="p-num">03</span>
                 <div class="p-meta">
                     <h2 class="p-name">Astuto</h2>
-                    <p class="p-desc">Cloud cost optimization platform — design system, animated product demos, and Webflow site built to communicate complex AI-driven savings.</p>
+                    <p class="p-desc">Website design and Webflow build for a cloud cost optimization platform. Made the product easy to understand through animated demos.</p>
                     <div class="tags">
                         <span class="tag">Design System</span>
                         <span class="tag">Product Animation</span>
@@ -950,7 +962,7 @@
                 <span class="p-num">04</span>
                 <div class="p-meta">
                     <h2 class="p-name">Diffie</h2>
-                    <p class="p-desc">AI-powered testing agent — brand identity, design system, and animated marketing website communicating developer-first product value.</p>
+                    <p class="p-desc">Brand identity, design system and marketing site for an AI testing tool. Built to speak to developers without sounding like every other AI startup.</p>
                     <div class="tags">
                         <span class="tag">Design System</span>
                         <span class="tag">Product Animation</span>
@@ -976,11 +988,11 @@
     </div>
     <div class="about-inner">
         <p class="about-stmt">
-            Designer who thinks in <em>systems</em>, builds in no-code, and sweats every detail that moves revenue.
+            I design in <em>systems</em>, build in no-code, and care too much about the details.
         </p>
         <div class="about-right">
             <p class="about-bio">
-                With 4+ years working alongside B2B SaaS founders, I bring positioning, messaging, and visual direction together — from Figma strategy through to shipped builds in Webflow or Framer. Currently expanding into product design, combining design depth with product thinking and user flows.
+                Four years working with B2B SaaS founders on websites that actually look like the product deserves them. I cover the whole thing — Figma to Webflow or Framer — and pick up what's needed along the way. These days I'm also getting deeper into product design.
             </p>
             <div>
                 <div class="eyebrow" style="margin-bottom: 16px;">Experience</div>
@@ -1027,22 +1039,22 @@
         <div class="svc">
             <div class="svc-num">01</div>
             <h3 class="svc-name">Website Design & Development</h3>
-            <p class="svc-desc">High-converting marketing sites for B2B SaaS — from positioning to pixels to published, in Webflow or Framer.</p>
+            <p class="svc-desc">Marketing websites for B2B SaaS, designed in Figma and built in Webflow or Framer.</p>
         </div>
         <div class="svc">
             <div class="svc-num">02</div>
             <h3 class="svc-name">Design Systems</h3>
-            <p class="svc-desc">Scalable component libraries in Figma and no-code. Built for teams who need to ship fast without sacrificing consistency.</p>
+            <p class="svc-desc">Component libraries in Figma that hold up as the product grows. Built for no-code teams who ship often.</p>
         </div>
         <div class="svc">
             <div class="svc-num">03</div>
             <h3 class="svc-name">Product Animation</h3>
-            <p class="svc-desc">Motion that communicates product value — onboarding flows, feature demos, interactive hero sections.</p>
+            <p class="svc-desc">Animations that show how the product actually works. Feature walkthroughs, demo loops, hero interactions.</p>
         </div>
         <div class="svc">
             <div class="svc-num">04</div>
             <h3 class="svc-name">Visual Direction</h3>
-            <p class="svc-desc">Brand strategy and visual identity for early-stage startups — positioning, messaging frameworks, and art direction.</p>
+            <p class="svc-desc">Visual direction for early-stage startups. Brand, positioning and art direction before things get complicated.</p>
         </div>
     </div>
 </section>
