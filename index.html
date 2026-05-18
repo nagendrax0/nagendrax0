@@ -318,64 +318,80 @@
         .p-item { border-bottom: 1px solid var(--rule); }
         .p-item:last-child { border-bottom: none; }
 
-        .p-row {
-            padding: clamp(28px, 4.5vw, 60px) var(--pad);
+        .p-split {
             display: grid;
-            grid-template-columns: 72px 1fr 1.4fr;
-            gap: clamp(20px, 3vw, 48px);
-            align-items: center;
-            transition: background 0.28s ease;
-            cursor: pointer;
+            grid-template-columns: 2fr 3fr;
+            min-height: clamp(360px, 42vw, 520px);
         }
 
-        .p-row:hover { background: rgba(0,0,0,0.035); }
+        .p-info {
+            padding: clamp(32px, 5vw, 60px) var(--pad);
+            display: flex;
+            flex-direction: column;
+            gap: clamp(16px, 2vw, 22px);
+            border-right: 1px solid var(--rule);
+        }
 
-        .p-num {
+        .p-title {
             font-family: var(--serif);
-            font-size: var(--fs-sm);
-            font-weight: 400;
-            color: var(--muted);
-            font-variant-numeric: tabular-nums;
-            align-self: start;
-            padding-top: 6px;
+            font-size: clamp(22px, 2.4vw, 34px);
+            font-weight: 300;
+            line-height: 1.2;
+            color: var(--ink);
         }
 
-        .p-meta { }
-
-        .p-name {
-            font-family: var(--serif);
-            font-size: var(--fs-3xl);
-            font-weight: 400;
-            line-height: 1;
-            letter-spacing: -0.015em;
-            margin-bottom: 16px;
-        }
+        .p-title strong { font-weight: 500; }
+        .p-title-sub { color: var(--muted); }
 
         .p-desc {
-            font-size: var(--fs-base);
+            font-family: 'Geist Mono', monospace;
+            font-size: clamp(10px, 0.82vw, 12px);
             font-weight: 300;
-            line-height: 1.6;
+            line-height: 1.9;
             color: var(--muted);
-            margin-bottom: 18px;
-            max-width: 320px;
         }
 
-        .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+        .p-link {
+            font-family: var(--sans);
+            font-size: var(--fs-sm);
+            font-weight: 400;
+            color: var(--accent);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            width: fit-content;
+            transition: gap 0.2s;
+        }
 
-        .tag {
+        .p-link:hover { gap: 10px; }
+
+        .p-tags-list {
+            list-style: none;
+            margin-top: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .p-tags-list li {
+            font-family: 'Geist Mono', monospace;
             font-size: var(--fs-2xs);
-            font-weight: 500;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            padding: 4px 10px;
-            border: 1px solid var(--rule);
-            border-radius: 2px;
+            font-weight: 400;
             color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .p-tags-list li::before {
+            content: '•';
+            color: var(--accent);
         }
 
         .p-visual {
-            aspect-ratio: 16/9;
-            border-radius: 3px;
             overflow: hidden;
             background: var(--rule);
             position: relative;
@@ -385,28 +401,62 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.55s cubic-bezier(0.33, 1, 0.68, 1);
+            object-position: center top;
+            display: block;
+            transition: transform 0.6s cubic-bezier(0.33, 1, 0.68, 1);
         }
 
-        .p-row:hover .p-visual img { transform: scale(1.05); }
-
+        .p-split:hover .p-visual img { transform: scale(1.04); }
 
         /* ─── INLINE TESTIMONIAL ─────────────────────────── */
-        .p-quote { border-bottom: 1px solid var(--rule); }
+        .p-quote {
+            background: var(--dark-bg);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
 
         .p-quote-inner {
-            padding: clamp(28px, 5vw, 56px) var(--pad);
-            display: grid;
-            grid-template-columns: clamp(72px, 8vw, 100px) 1fr;
-            gap: clamp(24px, 4vw, 56px);
+            padding: clamp(40px, 6vw, 72px) var(--pad);
+            display: flex;
+            flex-direction: column;
+            gap: clamp(20px, 3vw, 28px);
+            max-width: 860px;
+        }
+
+        .p-quote-mark {
+            font-family: var(--serif);
+            font-size: clamp(48px, 6vw, 80px);
+            font-weight: 300;
+            line-height: 1;
+            color: rgba(255,255,255,0.12);
+            margin-bottom: -8px;
+        }
+
+        .p-quote-text {
+            font-family: 'Geist Mono', monospace;
+            font-size: clamp(13px, 1.25vw, 17px);
+            font-weight: 300;
+            line-height: 1.8;
+            color: rgba(244,241,235,0.5);
+        }
+
+        .p-quote-hl {
+            color: var(--accent);
+            font-weight: 400;
+        }
+
+        .p-quote-attr {
+            display: flex;
             align-items: center;
+            gap: 12px;
+            margin-top: 4px;
         }
 
         .p-quote-photo {
-            aspect-ratio: 3/4;
-            border-radius: 3px;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
             overflow: hidden;
-            background: var(--rule);
+            flex-shrink: 0;
         }
 
         .p-quote-photo img {
@@ -416,50 +466,16 @@
             object-position: top center;
         }
 
-        .p-quote-body {
-            display: flex;
-            flex-direction: column;
-            gap: clamp(20px, 3vw, 36px);
-            align-self: stretch;
-            justify-content: space-between;
-            padding: clamp(4px, 1vw, 12px) 0;
-        }
-
-        .p-quote-text {
-            font-family: 'Geist Mono', monospace;
-            font-size: clamp(11px, 1vw, 13px);
-            font-weight: 300;
-            line-height: 1.8;
-            color: var(--muted);
-        }
-
-        .p-quote-hl {
-            color: var(--ink);
-            font-weight: 400;
-        }
-
-        .p-quote-attr {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .p-quote-co-logo {
-            height: 16px;
-            width: auto;
-            opacity: 0.55;
-        }
-
         .p-quote-who {
             font-size: var(--fs-sm);
-            font-weight: 500;
-            color: var(--ink);
+            font-weight: 400;
+            color: var(--dark-ink);
             line-height: 1.3;
         }
 
         .p-quote-role {
             font-size: var(--fs-xs);
-            color: var(--muted);
+            color: rgba(244,241,235,0.4);
             font-weight: 300;
         }
 
@@ -736,20 +752,18 @@
 
             .hero-cta { justify-content: flex-start; }
 
-            .p-row {
-                grid-template-columns: 48px 1fr;
-                grid-template-rows: auto auto;
+            .p-split {
+                grid-template-columns: 1fr;
+                min-height: unset;
             }
 
-            .p-visual { grid-column: 2; grid-row: 2; }
+            .p-info { border-right: none; border-bottom: 1px solid var(--rule); }
 
-            .p-quote-inner {
-                grid-template-columns: 72px 1fr;
-                padding: 24px var(--pad);
-                gap: 16px 20px;
-                align-items: start;
-            }
+            .p-visual { aspect-ratio: 16/9; }
 
+            .p-tags-list { margin-top: 8px; }
+
+            .p-quote-inner { max-width: 100%; }
 
             .about-inner { grid-template-columns: 1fr 1fr; }
 
@@ -870,36 +884,36 @@
 
         <!-- 01 Optexity -->
         <li class="p-item">
-            <a href="https://optexity.com" target="_blank" rel="noopener" class="p-row">
-                <span class="p-num">01</span>
-                <div class="p-meta">
-                    <h2 class="p-name">Optexity</h2>
-                    <p class="p-desc">Website design and Webflow build for an AI automation platform. Custom design system and product animations included.</p>
-                    <div class="tags">
-                        <span class="tag">Design System</span>
-                        <span class="tag">Product Animation</span>
-                        <span class="tag">Website Design</span>
-                        <span class="tag">Webflow Dev</span>
-                    </div>
+            <div class="p-split">
+                <div class="p-info">
+                    <h2 class="p-title"><strong>Optexity</strong><span class="p-title-sub"> — Designing for AI automation</span></h2>
+                    <p class="p-desc">Worked with Optexity's founders on a design system, full website design, Webflow build, and product animations.</p>
+                    <a href="https://optexity.com" target="_blank" rel="noopener" class="p-link">visit site →</a>
+                    <ul class="p-tags-list">
+                        <li>Design System</li>
+                        <li>Product Animation</li>
+                        <li>Website Design</li>
+                        <li>Webflow Development</li>
+                    </ul>
                 </div>
                 <div class="p-visual">
-                    <img src="./images/project photo/optexity mockup.webp" alt="Optexity website — AI automation platform" loading="lazy">
+                    <img src="./images/project photo/optexity mockup.webp" alt="Optexity" loading="lazy">
                 </div>
-            </a>
+            </div>
         </li>
+
+        <!-- Testimonial -->
         <li class="p-quote">
             <div class="p-quote-inner">
-                <div class="p-quote-photo">
-                    <img src="./images/sankalp.webp" alt="Sankalp Garg">
-                </div>
-                <div class="p-quote-body">
-                    <p class="p-quote-text">It was an awesome experience. <span class="p-quote-hl">The designs and level of detail stood out</span> as well as <span class="p-quote-hl">willingness for multiple iterations based on feedback.</span> It was made sure that <span class="p-quote-hl">we felt right before finalizing anything.</span></p>
-                    <div class="p-quote-attr">
-                        <img src="./images/optexity-logo.svg" alt="Optexity" class="p-quote-co-logo">
-                        <div>
-                            <div class="p-quote-who">Sankalp Garg</div>
-                            <div class="p-quote-role">Co-Founder, Optexity</div>
-                        </div>
+                <span class="p-quote-mark">"</span>
+                <p class="p-quote-text">An awesome experience. <span class="p-quote-hl">The designs and level of detail stood out,</span> as did the <span class="p-quote-hl">willingness to iterate.</span> We felt right before finalizing anything.</p>
+                <div class="p-quote-attr">
+                    <div class="p-quote-photo">
+                        <img src="./images/sankalp.webp" alt="Sankalp Garg">
+                    </div>
+                    <div>
+                        <div class="p-quote-who">Sankalp Garg</div>
+                        <div class="p-quote-role">Co-Founder, Optexity</div>
                     </div>
                 </div>
             </div>
@@ -907,61 +921,62 @@
 
         <!-- 02 Goodera -->
         <li class="p-item">
-            <a href="https://www.goodera.com" target="_blank" rel="noopener" class="p-row">
-                <span class="p-num">02</span>
-                <div class="p-meta">
-                    <h2 class="p-name">Goodera</h2>
+            <div class="p-split">
+                <div class="p-info">
+                    <h2 class="p-title"><strong>Goodera</strong><span class="p-title-sub"> — Redesigning a CSR platform at scale</span></h2>
                     <p class="p-desc">Worked with Goodera for over a year redesigning their full web presence. Built a design system that scaled across marketing and product.</p>
-                    <div class="tags">
-                        <span class="tag">Design System</span>
-                        <span class="tag">Visual Design</span>
-                        <span class="tag">Website Design</span>
-                        <span class="tag">Webflow Dev</span>
-                    </div>
+                    <a href="https://www.goodera.com" target="_blank" rel="noopener" class="p-link">visit site →</a>
+                    <ul class="p-tags-list">
+                        <li>Design System</li>
+                        <li>Visual Design</li>
+                        <li>Website Design</li>
+                        <li>Webflow Development</li>
+                    </ul>
                 </div>
                 <div class="p-visual">
-                    <img src="./images/project photo/goodera mockup.webp" alt="Goodera — CSR platform website" loading="lazy">
+                    <img src="./images/project photo/goodera mockup.webp" alt="Goodera" loading="lazy">
                 </div>
-            </a>
+            </div>
         </li>
 
         <!-- 03 Astuto -->
         <li class="p-item">
-            <a href="https://www.astuto.ai" target="_blank" rel="noopener" class="p-row">
-                <span class="p-num">03</span>
-                <div class="p-meta">
-                    <h2 class="p-name">Astuto</h2>
+            <div class="p-split">
+                <div class="p-info">
+                    <h2 class="p-title"><strong>Astuto</strong><span class="p-title-sub"> — Making cloud costs feel simple</span></h2>
                     <p class="p-desc">Website design and Webflow build for a cloud cost optimization platform. Made the product easy to understand through animated demos.</p>
-                    <div class="tags">
-                        <span class="tag">Design System</span>
-                        <span class="tag">Product Animation</span>
-                        <span class="tag">Website Design</span>
-                        <span class="tag">Webflow Dev</span>
-                    </div>
+                    <a href="https://www.astuto.ai" target="_blank" rel="noopener" class="p-link">visit site →</a>
+                    <ul class="p-tags-list">
+                        <li>Design System</li>
+                        <li>Product Animation</li>
+                        <li>Website Design</li>
+                        <li>Webflow Development</li>
+                    </ul>
                 </div>
                 <div class="p-visual">
-                    <img src="./images/project photo/astuto.webp" alt="Astuto — cloud cost optimization platform" loading="lazy">
+                    <img src="./images/project photo/astuto.webp" alt="Astuto" loading="lazy">
                 </div>
-            </a>
+            </div>
         </li>
 
         <!-- 04 Diffie -->
         <li class="p-item">
-            <a href="https://diffie.ai" target="_blank" rel="noopener" class="p-row">
-                <span class="p-num">04</span>
-                <div class="p-meta">
-                    <h2 class="p-name">Diffie</h2>
+            <div class="p-split">
+                <div class="p-info">
+                    <h2 class="p-title"><strong>Diffie</strong><span class="p-title-sub"> — Brand for a developer-first AI tool</span></h2>
                     <p class="p-desc">Brand identity, design system and marketing site for an AI testing tool. Built to speak to developers without sounding like every other AI startup.</p>
-                    <div class="tags">
-                        <span class="tag">Design System</span>
-                        <span class="tag">Product Animation</span>
-                        <span class="tag">Website Design</span>
-                    </div>
+                    <a href="https://diffie.ai" target="_blank" rel="noopener" class="p-link">visit site →</a>
+                    <ul class="p-tags-list">
+                        <li>Brand Identity</li>
+                        <li>Design System</li>
+                        <li>Product Animation</li>
+                        <li>Website Design</li>
+                    </ul>
                 </div>
                 <div class="p-visual">
-                    <img src="./images/project photo/diffie.webp" alt="Diffie — AI-powered testing agent" loading="lazy">
+                    <img src="./images/project photo/diffie.webp" alt="Diffie" loading="lazy">
                 </div>
-            </a>
+            </div>
         </li>
 
     </ul>
