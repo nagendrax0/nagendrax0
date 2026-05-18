@@ -469,7 +469,14 @@
             grid-template-columns: 72px 1fr 1.4fr;
             gap: clamp(20px, 3vw, 48px);
             align-items: start;
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+            transition: background 0.28s ease;
         }
+
+        .p-row-outer:hover { background: rgba(0,0,0,0.035); }
+        .p-row-outer:hover .p-visual img { transform: scale(1.05); }
 
         .p-row-left-sticky {
             position: sticky;
@@ -989,7 +996,7 @@
 
         <!-- 01 Optexity -->
         <li class="p-item">
-            <div class="p-row-outer">
+            <a href="https://optexity.com" target="_blank" rel="noopener" class="p-row-outer">
                 <div class="p-row-left-sticky">
                     <span class="p-num">01</span>
                     <div class="p-meta">
@@ -1022,7 +1029,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </a>
         </li>
 
         <!-- 02 Goodera -->
