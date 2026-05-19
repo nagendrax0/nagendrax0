@@ -53,13 +53,13 @@
 
         /* ─── TOKENS ─────────────────────────────────────── */
         :root {
-            --bg:        #F4F1EB;
-            --ink:       #18160F;
-            --muted:     #8C8579;
-            --rule:      #DED9CF;
+            --bg:        #0F0E0A;
+            --ink:       #EDE9E0;
+            --muted:     #706B65;
+            --rule:      #252220;
             --accent:    #C95320;
-            --dark-bg:   #18160F;
-            --dark-ink:  #F4F1EB;
+            --dark-bg:   #1C1916;
+            --dark-ink:  #EDE9E0;
 
             --serif: 'Cormorant Garamond', Georgia, serif;
             --sans:  'DM Sans', system-ui, -apple-system, sans-serif;
@@ -328,7 +328,7 @@
             cursor: pointer;
         }
 
-        .p-row:hover { background: rgba(0,0,0,0.035); }
+        .p-row:hover { background: rgba(255,255,255,0.04); }
 
         .p-num {
             font-family: var(--serif);
@@ -475,7 +475,7 @@
             transition: background 0.28s ease;
         }
 
-        .p-row-outer:hover { background: rgba(0,0,0,0.035); }
+        .p-row-outer:hover { background: rgba(255,255,255,0.04); }
         .p-row-outer:hover .p-visual img { transform: scale(1.05); }
 
         .p-row-left-sticky {
@@ -499,6 +499,7 @@
 
         .p-quote-card {
             background: var(--dark-bg);
+            border: 1px solid var(--rule);
             border-radius: 3px;
             padding: clamp(24px, 3vw, 36px);
             display: flex;
@@ -601,7 +602,7 @@
             font-size: var(--fs-md);
             font-weight: 300;
             line-height: 1.75;
-            color: #3A3830;
+            color: var(--muted);
         }
 
         .xp-list { list-style: none; border-top: 1px solid var(--rule); }
@@ -695,7 +696,7 @@
             margin-bottom: 60px;
         }
 
-        h2.contact-h em { font-style: italic; color: #7A7670; }
+        h2.contact-h em { font-style: italic; color: #9A9490; }
 
         .contact-actions {
             display: flex;
@@ -726,8 +727,8 @@
             font-weight: 400;
             letter-spacing: 0.1em;
             text-transform: uppercase;
-            color: #7A7670;
-            border-bottom: 1px solid #7A7670;
+            color: #9A9490;
+            border-bottom: 1px solid #9A9490;
             padding-bottom: 2px;
             transition: color 0.2s, border-color 0.2s;
         }
@@ -756,7 +757,7 @@
             font-size: var(--fs-xs);
             font-weight: 300;
             letter-spacing: 0.06em;
-            color: #7A7670;
+            color: #706B65;
         }
 
         .f-links { display: flex; gap: 22px; }
@@ -766,7 +767,7 @@
             font-weight: 400;
             letter-spacing: 0.12em;
             text-transform: uppercase;
-            color: #7A7670;
+            color: #706B65;
             transition: color 0.2s;
         }
 
@@ -895,7 +896,7 @@
 
 <!-- ─── NAV ──────────────────────────────────────────────── -->
 <nav>
-    <a href="/" class="nav-mono"><img src="./images/x0-logo-black.svg" alt="x0" style="height:22px;width:auto;display:block;"></a>
+    <a href="/" class="nav-mono"><img src="./images/x0 logo.webp" alt="x0" style="height:22px;width:auto;display:block;"></a>
     <span class="nav-center">Nagendra Shekhawat</span>
     <ul class="nav-links">
         <li><a href="#work">Work</a></li>
